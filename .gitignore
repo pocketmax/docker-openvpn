@@ -1,0 +1,12 @@
+.vagrant/
+.idea
+
+tmp
+
+.prv
+.pub
+.crt
+.pem
+.csr
+.key
+.pem
