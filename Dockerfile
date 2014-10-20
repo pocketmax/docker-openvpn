@@ -13,5 +13,5 @@ RUN mkdir /keys
 ADD init.sh /tmp/
 
 RUN chmod 700 /tmp/init.sh
-#RUN /tmp/init.sh
+RUN /tmp/init.sh
 #https://openvpn.net/index.php/open-source/documentation/howto.html
