@@ -64,4 +64,5 @@ else
 
 fi
 
+client-config-dir ccd
 openvpn --config /etc/openvpn/server.conf

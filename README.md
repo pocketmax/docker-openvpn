@@ -19,6 +19,8 @@ docker run -d -i \
 -v /server.crt:/keys/server.crt \
 -v /server.key:/keys/server.key \
 
+-v /foobar/ccd:/etc/openvpn/ccd \
+
 pocketmax/openvpn
 ```
 
