@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#setup tun
+[ -d /dev/net ] ||
+    mkdir -p /dev/net
+[ -c /dev/net/tun ] ||
+    mknod /dev/net/tun c 10 200
 
 #setup key generating env
 cd /usr/share/easy-rsa/
@@ -58,3 +63,5 @@ else
 
 
 fi
+
+openvpn --config /etc/openvpn/server.conf

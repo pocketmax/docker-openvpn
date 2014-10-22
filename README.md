@@ -47,3 +47,5 @@ and any keys that aren't present will be generated and placed in the baremetal d
 ```
 docker copy /keys/thekey.key /baremetal/bla
 ```
+
+https://openvpn.net/index.php/open-source/documentation/howto.html
