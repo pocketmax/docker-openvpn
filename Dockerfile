@@ -2,12 +2,11 @@ FROM ubuntu:latest
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y easy-rsa openvpn
+RUN apt-get install -y easy-rsa openvpn supervisor
 
 ADD openvpn-client.conf /tmp/
 ADD openvpn-server.conf /tmp/
 
-RUN cp /tmp/openvpn-client.conf /etc/openvpn/openvpn.conf
 
 RUN mkdir /keys
 
@@ -20,6 +19,6 @@ RUN chmod 700 /initclient.sh
 ADD initserver.sh /
 RUN chmod 700 /initserver.sh
 
-RUN /init.sh
+CMD /init.sh
 
 EXPOSE 1194

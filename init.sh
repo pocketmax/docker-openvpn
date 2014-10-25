@@ -6,5 +6,14 @@
 [ -c /dev/net/tun ] ||
     mknod /dev/net/tun c 10 200
 
-client-config-dir ccd
-openvpn --config /etc/openvpn/server.conf
+#server config
+if [ -f /keys/server.crt ] && [ ! -f /etc/openvpn/openvpn.conf ]; then
+    cp /tmp/openvpn-server.conf /etc/openvpn/openvpn.conf
+fi
+
+#client config
+if [ ! -f /keys/server.crt ] && [ ! -f /etc/openvpn/openvpn.conf ]; then
+    cp /tmp/openvpn-client.conf /etc/openvpn/openvpn.conf
+fi
+
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf

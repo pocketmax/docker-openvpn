@@ -5,6 +5,7 @@ cd /usr/share/easy-rsa/
 . ./vars
 ./clean-all
 export KEY_CN=$1
+echo "generating client keys"
 
 if [ -z "$1" ]; then
     echo "initclient.sh clientName"
@@ -17,6 +18,8 @@ if [ ! -f /keys/ca.crt ]; then
 fi
 
 echo "generate client.crt"
-./pkitool client
-cp keys/client.csr /keys/
-cp keys/client.crt /keys/
+ln -s /keys/ca.crt /usr/share/easy-rsa/keys/
+ln -s /keys/ca.key /usr/share/easy-rsa/keys/
+./pkitool $1
+cp keys/$1.csr /keys/
+cp keys/$1.crt /keys/

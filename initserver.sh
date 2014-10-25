@@ -7,7 +7,7 @@ cd /usr/share/easy-rsa/
 
 echo "generate ca.crt and ca.key"
 ./pkitool --initca
-cp keys/ca.csr /keys/
+cp keys/ca.key /keys/
 cp keys/ca.crt /keys/
 
 
