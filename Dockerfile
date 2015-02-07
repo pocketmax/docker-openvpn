@@ -1,10 +1,8 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get upgrade -y
 RUN apt-get install -y easy-rsa openvpn supervisor
-ADD openvpn /etc/openvpn
-
-CMD ["/usr/sbin/openvpn", "--config", "/etc/openvpn/openvpn.conf"]
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+CMD ["/usr/bin/supervisord"]
 
 EXPOSE 1194
